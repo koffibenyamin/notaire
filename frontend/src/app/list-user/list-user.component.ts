@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { UserInterface, UserService } from '../_services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-user',
@@ -15,7 +16,7 @@ export class ListUserComponent implements OnInit {
   user?: UserInterface;
   currentIndex = -1;
 
-  constructor(private userService: UserService ) {   }
+  constructor(private userService: UserService,private router: Router ) {   }
 
   deleteUser(id: number) {
     this.userService.deleteUser(id).subscribe(msg => this._message = msg);
@@ -38,6 +39,10 @@ export class ListUserComponent implements OnInit {
       error => {
         console.log(error);
       });
+  }
+
+  creer(){
+    this.router.navigate(['register']);
   }
 
 }

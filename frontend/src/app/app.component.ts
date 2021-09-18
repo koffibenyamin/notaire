@@ -13,7 +13,7 @@ export class AppComponent {
   isLoggedIn = false;
   showAdminBoard = false;
   username ?:string;
-  counter?: string;
+  counter ?:string;
 
   constructor(private tokenStorageService: TokenStorageService, private userService: UserService) { }
 
