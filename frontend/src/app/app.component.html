@@ -1,68 +1,48 @@
 
+<div class="card-header card-header-primary" style="text-align:center" *ngIf="!isLoggedIn" >
+              <h3 class="card-title" center>notaria</h3>
+              <p class="card-category">Application de gestion notarial
+              </p>
+            </div>
 
+<app-register *ngIf="counter=='0'"></app-register>
+<app-login *ngIf="!isLoggedIn && counter != '0'" ></app-login>
 
-<div class="wrapper ">
+<div class="wrapper " *ngIf="isLoggedIn">
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
 
      <div class="logo"><a href=# class="simple-text logo-normal">
-          notaria {{counter}}
+          notaria 
         </a></div>
       <div class="sidebar-wrapper" *ngIf="isLoggedIn">
         <ul class="nav">
-          <li class="nav-item  ">
-            <a class="nav-link" href="./dashboard.html">
-              <i class="material-icons">dashboard</i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li class="nav-item active " *ngIf="showAdminBoard">
+          
+          <li class="nav-item " onlick='class=" active " ' *ngIf="showAdminBoard">
             <a class="nav-link" href="/admin" routerLink="admin">
               <i class="material-icons">person</i>
               <p>Gestion des utilisateurs</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./tables.html">
-              <i class="material-icons">content_paste</i>
-              <p>Table List</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./typography.html">
+          <li class="nav-item  ">
+            <a class="nav-link" href="/user">
               <i class="material-icons">library_books</i>
-              <p>Typography</p>
+              <p>Gestion des clients</p>
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
-              <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
+            <a class="nav-link" href="/listdossiers">
+              <i class="material-icons">content_paste</i>
+              <p>Liste des dossiers</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./map.html">
-              <i class="material-icons">location_ons</i>
-              <p>Maps</p>
+          <li class="nav-item  ">
+            <a class="nav-link" href="/config">
+              <i class="material-icons">dashboard</i>
+              <p>Configuration</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./notifications.html">
-              <i class="material-icons">notifications</i>
-              <p>Notifications</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./rtl.html">
-              <i class="material-icons">language</i>
-              <p>RTL Support</p>
-            </a>
-          </li>
-          <li class="nav-item active-pro ">
-            <a class="nav-link" href="./upgrade.html">
-              <i class="material-icons">unarchive</i>
-              <p>Upgrade to PRO</p>
-            </a>
-          </li>
+
+
         </ul>
       </div>
     </div>
@@ -77,7 +57,6 @@
     <a href="#" class="navbar-brand">notaria</a>
     <ul class="navbar-nav mr-auto" routerLinkActive="active">
       <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home">Acceuil </a>
       </li>
       <li class="nav-item" *ngIf="showAdminBoard">
         <a href="/admin" class="nav-link" routerLink="admin">Espace administrateur</a>
@@ -88,7 +67,7 @@
       </li>
     </ul>
 
-    <ul  class="navbar-nav ml-auto" *ngIf="showAdminBoard || counter=='0'">
+    <ul  class="navbar-nav ml-auto" *ngIf="showAdminBoard">
     <li class="nav-item" >
         <a href="/register" class="nav-link" routerLink="register">Créer un compte</a>
       </li>
@@ -121,5 +100,8 @@
     <router-outlet></router-outlet>
   </div>
       </div>
+
+
+
 
 

@@ -50,7 +50,7 @@ public class ClientController {
 
     @GetMapping("/search/{mot}")
     public List<Client> findClient(@PathVariable("mot") String mot){
-            return clientRepository.findByNomContaining(mot);
+            return clientRepository.findByNomContainingOrPrenomContaining(mot, mot);
     }
 
     @DeleteMapping("/{id}")

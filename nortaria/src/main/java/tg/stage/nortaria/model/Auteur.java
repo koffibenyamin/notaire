@@ -1,2 +1,6 @@
-package tg.stage.nortaria.model;public enum Auteur {
+package tg.stage.nortaria.model;
+
+public enum Auteur {
+    Client,
+    Cabinet,
 }
